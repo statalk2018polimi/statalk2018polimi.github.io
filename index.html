@@ -6782,6 +6782,18 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
         </g>
         </svg>
         
+        <div id="tooltip-registration" class="svg-tooltip">
+          <h3>Registration</h3>
+          <p>09:30</p>
+          <p>Aula Magna, Piazza Leonardo da Vinci</p>
+        </div>
+        
+        <div id="tooltip-intro" class="svg-tooltip">
+          <h3>Introduction</h3>
+          <p>10:00</p>
+          <p>Aula Magna, Piazza Leonardo da Vinci</p>
+        </div>
+        
         <div id="tooltip-admin" class="svg-tooltip">
           <h3>Administrative Data</h3>
           <p>10:15 - Chiara Masci </p>
@@ -6817,10 +6829,22 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
           <p>12:10 - Nicholas Tarabelloni</p>
           <p>Aula Magna, Piazza Leonardo da Vinci</p>
         </div>
+        
+        <div id="tooltip-lunch" class="svg-tooltip">
+          <h3>Lunch break</h3>
+          <p>12:30</p>
+          <p>Aula Magna, Piazza Leonardo da Vinci</p>
+        </div>
 
         <div id="tooltip-panel1" class="svg-tooltip">
           <h3>Earth Science//<br>Industry 4.0//<br>Neuroscience</h3>
           <p>Edificio Nave, Via Bonardi 9</p>
+        </div>
+        
+        <div id="tooltip-coffee" class="svg-tooltip">
+          <h3>Coffee break</h3>
+          <p>15:15</p>
+          <p>Math & Coffee II piano, Edificio Nave</p>
         </div>
 
         <div id="tooltip-panel2" class="svg-tooltip">
@@ -6829,6 +6853,37 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
         </div>
         
         <script>
+            
+        // Registration.
+        var registration = document.getElementById("svg-registration");
+        var tooltip_registration = document.getElementById("tooltip-registration");
+
+        registration.addEventListener("mouseover", show_registration);
+        registration.addEventListener("mouseout", hide_all);
+
+        function show_registration(evt) {
+          var iconPos = registration.getBoundingClientRect();
+          
+          tooltip_registration.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
+          tooltip_registration.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_registration.style.display = "block";
+        }
+            
+        // Intro.
+        var intro = document.getElementById("svg-intro");
+        var tooltip_intro = document.getElementById("tooltip-intro");
+
+        intro.addEventListener("mouseover", show_intro);
+        intro.addEventListener("mouseout", hide_all);
+
+        function show_intro(evt) {
+          var iconPos = intro.getBoundingClientRect();
+          
+          tooltip_intro.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
+          tooltip_intro.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_intro.style.display = "block";
+        }
+            
         // Administrative.
         var admin = document.getElementById("svg-admin");
         var tooltip_admin = document.getElementById("tooltip-admin");
@@ -6918,6 +6973,21 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
           tooltip_industry.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
           tooltip_industry.style.display = "block";
         }
+            
+        // Lunch.
+        var lunch = document.getElementById("svg-lunch");
+        var tooltip_lunch = document.getElementById("tooltip-lunch");
+
+        lunch.addEventListener("mouseover", show_lunch);
+        lunch.addEventListener("mouseout", hide_all);
+
+        function show_lunch(evt) {
+          var iconPos = lunch.getBoundingClientRect();
+          
+          tooltip_lunch.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
+          tooltip_lunch.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_lunch.style.display = "block";
+        }
 
         // Panel 1.
         var panel1 = document.getElementById("svg-panel1");
@@ -6932,6 +7002,21 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
           tooltip_panel1.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
           tooltip_panel1.style.top = (window.scrollY + industry.getBoundingClientRect().top - 110 - 1.05 * industry.getBoundingClientRect().height) + "px";
           tooltip_panel1.style.display = "block";
+        }
+            
+        // Coffee.
+        var coffee = document.getElementById("svg-coffee");
+        var tooltip_coffee = document.getElementById("tooltip-coffee");
+
+        coffee.addEventListener("mouseover", show_coffee);
+        coffee.addEventListener("mouseout", hide_all);
+
+        function show_coffee(evt) {
+          var iconPos = coffee.getBoundingClientRect();
+          
+          tooltip_coffee.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
+          tooltip_coffee.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_coffee.style.display = "block";
         }
 
         // Panel 2.
@@ -6951,13 +7036,17 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         // Hide all.
         function hide_all(evt) {
+          tooltip_intro.style.display = "none";
+          tooltip_registration.style.display = "none";
           tooltip_admin.style.display = "none";
           tooltip_brain.style.display = "none";
           tooltip_climate.style.display = "none";
           tooltip_earth.style.display = "none";
           tooltip_smart.style.display = "none";
           tooltip_industry.style.display = "none";
+          tooltip_lunch.style.display = "none";
           tooltip_panel1.style.display = "none";
+          tooltip_coffee.style.display = "none";
           tooltip_panel2.style.display = "none";
         }
         </script>
