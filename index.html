@@ -137,7 +137,7 @@
         transform: rotate(45deg);
         background-color: #EEEEEE;
         position: absolute;
-        left: 144px;
+        left: var(--arrow-shift);
         bottom: 0%;
         margin-bottom: -6px;
     }
@@ -6782,90 +6782,90 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
         </g>
         </svg>
         
-        <div id="tooltip-registration" class="svg-tooltip">
+        <div id="tooltip-registration" class="svg-tooltip" style="--arrow-shift: 94px">
           <h3>Registration</h3>
           <p>09:30</p>
           <p>Aula Magna, Piazza Leonardo da Vinci</p>
         </div>
         
-        <div id="tooltip-intro" class="svg-tooltip">
+        <div id="tooltip-intro" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Introduction</h3>
           <p>10:00</p>
           <p>Aula Magna, Piazza Leonardo da Vinci</p>
         </div>
         
-        <div id="tooltip-admin" class="svg-tooltip">
+        <div id="tooltip-admin" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Administrative Data</h3>
           <p>10:15 - Chiara Masci </p>
           <p>Aula Magna, Piazza Leonardo da Vinci</p>
         </div>
 
-        <div id="tooltip-brain" class="svg-tooltip">
+        <div id="tooltip-brain" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Neuroscience</h3>
           <p>10:35 - Aymeric Stamm</p>
           <p>Aula Magna, Piazza Leonardo da Vinci</p>
         </div>
 
-        <div id="tooltip-climate" class="svg-tooltip">
+        <div id="tooltip-climate" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Climate Change</h3>
           <p>10:55 - Matteo Fontana </p>
           <p>Aula Magna, Piazza Leonardo da Vinci</p>
         </div>
 
-        <div id="tooltip-earth" class="svg-tooltip">
+        <div id="tooltip-earth" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Earth Science</h3>
           <p>11:30 - Alessandra Menafoglio</p>
           <p>Aula Magna, Piazza Leonardo da Vinci</p>
         </div>
 
-        <div id="tooltip-smart" class="svg-tooltip">
+        <div id="tooltip-smart" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Smart City</h3>
           <p>11:50 - Jacopo Di Iorio </p>
           <p>Aula Magna, Piazza Leonardo da Vinci</p>
         </div>
 
-        <div id="tooltip-industry" class="svg-tooltip">
+        <div id="tooltip-industry" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Industry 4.0</h3>
           <p>12:10 - Nicholas Tarabelloni</p>
           <p>Aula Magna, Piazza Leonardo da Vinci</p>
         </div>
         
-        <div id="tooltip-lunch" class="svg-tooltip">
+        <div id="tooltip-lunch" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Lunch break</h3>
           <p>12:30</p>
           <p>Aula Magna, Piazza Leonardo da Vinci</p>
         </div>
 
-        <div id="tooltip-panel1" class="svg-tooltip">
+        <div id="tooltip-panel1" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Earth Science//<br>Industry 4.0//<br>Neuroscience</h3>
           <p>Edificio Nave, Via Bonardi 9</p>
         </div>
         
-        <div id="tooltip-coffee" class="svg-tooltip">
+        <div id="tooltip-coffee" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Coffee break</h3>
           <p>15:15</p>
           <p>Math & Coffee II piano, Edificio Nave</p>
         </div>
 
-        <div id="tooltip-panel2" class="svg-tooltip">
+        <div id="tooltip-panel2" class="svg-tooltip" style="--arrow-shift: 144px">
           <h3>Administrative Data//<br>Climate Change//<br>Smart City</h3>
           <p>Edificio Nave, Via Bonardi 9</p>
         </div>
         
         <script>
-            
         // Registration.
         var registration = document.getElementById("svg-registration");
         var tooltip_registration = document.getElementById("tooltip-registration");
-
+        
         registration.addEventListener("mouseover", show_registration);
         registration.addEventListener("mouseout", hide_all);
 
         function show_registration(evt) {
           var iconPos = registration.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
-          tooltip_registration.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_registration.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_registration.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 100 + "px";
+          tooltip_registration.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_registration.style.display = "block";
         }
             
@@ -6878,9 +6878,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_intro(evt) {
           var iconPos = intro.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
-          tooltip_intro.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_intro.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_intro.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 153 + "px";
+          tooltip_intro.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_intro.style.display = "block";
         }
             
@@ -6893,9 +6894,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_admin(evt) {
           var iconPos = admin.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
           tooltip_admin.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_admin.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_admin.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_admin.style.display = "block";
         }
 
@@ -6908,9 +6910,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_brain(evt) {
           var iconPos = brain.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
           tooltip_brain.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_brain.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_brain.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_brain.style.display = "block";
         }
 
@@ -6923,9 +6926,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_climate(evt) {
           var iconPos = climate.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
           tooltip_climate.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_climate.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_climate.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_climate.style.display = "block";
         }
 
@@ -6938,9 +6942,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_earth(evt) {
           var iconPos = climate.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
           tooltip_earth.style.left = (window.scrollX + iconPos.right + iconPos.width / 2) - 146 + "px";
-          tooltip_earth.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_earth.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_earth.style.display = "block";
         }
 
@@ -6953,9 +6958,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_smart(evt) {
           var iconPos = smart.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
           tooltip_smart.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_smart.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_smart.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_smart.style.display = "block";
         }
 
@@ -6968,9 +6974,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_industry(evt) {
           var iconPos = industry.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
           tooltip_industry.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_industry.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_industry.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_industry.style.display = "block";
         }
             
@@ -6983,9 +6990,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_lunch(evt) {
           var iconPos = lunch.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
           tooltip_lunch.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_lunch.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_lunch.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_lunch.style.display = "block";
         }
 
@@ -6998,9 +7006,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_panel1(evt) {
           var iconPos = panel1.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
           tooltip_panel1.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_panel1.style.top = (window.scrollY + industry.getBoundingClientRect().top - 110 - 1.05 * industry.getBoundingClientRect().height) + "px";
+          tooltip_panel1.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_panel1.style.display = "block";
         }
             
@@ -7013,9 +7022,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_coffee(evt) {
           var iconPos = coffee.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
           tooltip_coffee.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_coffee.style.top = (window.scrollY + iconPos.top - 110 - 1.05 * iconPos.height) + "px";
+          tooltip_coffee.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_coffee.style.display = "block";
         }
 
@@ -7028,9 +7038,10 @@ Statistics plays a role in many of them, thanks to the abundance of good data, a
 
         function show_panel2(evt) {
           var iconPos = panel2.getBoundingClientRect();
+          var tooltip_height = registration.getBoundingClientRect().top - 1.05 * registration.getBoundingClientRect().height;
           
           tooltip_panel2.style.left = (window.scrollX + iconPos.left + iconPos.right) / 2 - 150 + "px";
-          tooltip_panel2.style.top = (window.scrollY + industry.getBoundingClientRect().top - 110 - 1.05 * industry.getBoundingClientRect().height) + "px";
+          tooltip_panel2.style.top = (window.scrollY + tooltip_height - 110) + "px";
           tooltip_panel2.style.display = "block";
         }
 
